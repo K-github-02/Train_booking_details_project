@@ -1,0 +1,142 @@
+//Kanak Navin Mishra           Plan my journey,Dashboard
+#include <stdio.h>
+void my_bookings();
+void dashboard();
+void PNR_status();
+void plan_my_journey();
+struct login
+{
+    char username[20];
+    long int password,confirmpassword;
+    int age;
+};
+struct Passenger
+{
+    char name[20];
+    int age;
+    char identity[10];
+};
+void my_bookings() //Muskan Singh
+{
+    printf("Passenger \t\tTrain name     \t\tDate of journey\t\tSeat status\t\tOthers\n");
+    printf("Prerna    \t\tGaribrath      \t\t27/10/2021     \t\tReserved   \t\tDownload ticket\n");
+    printf("Muskan    \t\tSecuderabad exp\t\t05/08/2021     \t\tReserved   \t\tJourney completed.\n");
+    printf("Harnoor   \t\tHWH Pune       \t\t04/11/2021     \t\tReserved   \t\tDownload ticket\n");
+    printf("Kanak     \t\tDanapur Express\t\t12/07/2021     \t\tReserved   \t\tJourney Completed\n");
+    printf("Sanskruti \t\tAMI express    \t\t29/10/2021     \t\tWaiting    \t\tDownload Ticket\n");
+    printf("___________________________________________________________________________________________________________\n\n");
+    printf("\n\n***************************************************************************************************************");
+    printf("\n\t1. my bookings\n\t2.PNR status\n\t3.Plan my journey\n");
+}
+void PNR_status() //Harnoor Kaur Huda
+{
+   long int p;
+   printf("enter the PNR number: ");
+   scanf("%ld",&p);
+   if(p==22135)
+   {printf("NGP_REWA\nCurrent status: Itarsi\nTime: 07:20 at Madhya Rail station\nPlatform number:2\n");}
+   else if(p==18240)
+   {printf("BILASPUR\nCurrent status: Jabalpur\nTime: 01:30 at Madhya Rail station\nPlatform number:6\n");}
+   else if(p==12114)
+   {printf("Garibrath\nCurrent status: Pune\nTime: 20:45 at Madhya Rail station\nPlatform number:8\n");}
+   else if(p==12036)
+   {printf("NGP_PUNE express\nCurrent status: Amaravati\nTime: 14:45 at Madhya Rail station\nPlatform number:7\n");}
+   else if(p==12012)
+   {printf("Rajdhani express\nCurrent status: Bihar\nTime: 18:45 at Madhya Rail station\nPlatform number:5\n");}
+   printf("________________________________________________________________________________________________________\n\n");
+   printf("\n\n***************************************************************************************************************");
+   printf("\n\t1. my bookings\n\t2.PNR status\n\t3.Plan my journey\n");
+}
+void dashboard() //Kanak Mishra
+{
+    int ch;
+    scanf("%d",&ch);
+    if(ch==1)
+    {my_bookings();
+    dashboard();}
+    if(ch==2)
+    {PNR_status();
+    dashboard();}
+    if(ch==3)
+    {
+        plan_my_journey();
+        dashboard();
+    }
+    else if(ch==4)
+    {printf("VISIT AGAIN");}
+}
+void plan_my_journey()
+{
+    int n,i,m,date;
+    char dest[20],name[20],ok[3];
+    struct Passenger p[10];
+    //Prerna Gandhi
+    printf("Enter the number of passengers: ");
+    scanf("%d",&n);
+    printf("\nEnter the details\n");
+    for(i=0;i<n;i++)
+    {printf("\nEnter name of passenger %d: ",i+1);
+    scanf("%s",p[i].name);
+    printf("Enter age of passenger %d: ",i+1);
+    scanf("%d",&p[i].age);
+    printf("Enter identity of passenger %d: ",i+1);
+    scanf("%s",p[i].identity);}
+    printf("Enter the destination: ");scanf("%s",dest);
+    // Kanak Mishra
+    printf("Enter the date of Journey\n");printf("Date: ");scanf("%d",&date);printf("Month: ");scanf("%d",&m);
+    printf("Enter the train name: ");scanf("%s",name);
+    printf("Please proceed to pay %d/-",n*799);
+    printf("Click okay to proceed payment:  ");
+    scanf("%s",ok);
+    printf("\n\t\tDISPLAY\n\n");
+    for(i=0;i<n;i++)
+    {printf("%s__%d__%s\n",p[i].name,p[i].age,p[i].identity);}
+    printf("\nFrom: Madhya Rail to %s via %s on %d/%d\n Your journey ticket is booked.\n",dest,name,date,m);
+    printf("\n\t\t\tCome back later to see the status of your booking.\n");
+    printf("___________________________________________________________________________________________________________\n\n");
+    printf("\n\n***************************************************************************************************************");
+    printf("\n\t1. my bookings\n\t2.PNR status\n\t3.Plan my journey\n");
+}
+void main()
+{
+    int c;
+    printf("\n\n***************************************************************************************************************");
+    printf("\n___________________________________________________________________________________________________________\n\n");
+    printf("\t\t\t\tWELCOME TO MADHYA RAIL NAGPUR\n\n___________________________________________________________________________________________________________\n\n");
+    printf("\nEnter your choice\n1. login\n2. Signup\n");
+    scanf("%d",&c);
+    struct login l; //Sanskruti Wagh
+    if(c==1)
+    {printf("Enter username: ");
+    scanf("%s",l.username);
+    printf("Enter password: ");
+    scanf("%ld",&l.password);
+    printf("Invalid login\n");
+    printf("___________________________________________________________________________________________________________\n\n");
+    printf("\t\t\t\nDASHBOARD\n");
+    printf("___________________________________________________________________________________________________________\n\n");
+    printf("\n\n***************************************************************************************************************");
+    //printf("\n\t1. my bookings\n\t2.PNR status\n\t3.Plan my journey\n");}
+    c=2;}
+    if(c==2)
+    {printf("\nEnter username: ");
+    scanf("%s",l.username);
+    printf("Enter age: ");
+    scanf("%d",&l.age);
+    printf("Enter password: ");
+    scanf("%ld",&l.password);
+    printf("Confirm password: ");
+    scanf("%ld",&l.confirmpassword);
+    printf("Account created Successfully\n");
+    printf("___________________________________________________________________________________________________________\n\n");
+    printf("\t\t\t\nDASHBOARD\n");
+    printf("___________________________________________________________________________________________________________\n\n");
+    printf("\n\n***************************************************************************************************************");
+    printf("\n\t1. my bookings\n\t2.PNR status\n\t3.Plan my journey\n");}
+    dashboard();
+}
+
+
+
+
+
